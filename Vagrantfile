@@ -15,6 +15,9 @@ Vagrant.configure(2) do |config|
   config.vm.box = "hashicorp/precise64"
     config.vm.hostname = "tomasDH.be"
     config.vm.network "forwarded_port", guest:80, host:8888
+    config.vm.synced_folder "../do_ex1", "/vagrant"
+    config.vm.provision "shell", inline: "echo hello"
+    config.vm.povision "shell", path: "provision_nginx.sh"
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
